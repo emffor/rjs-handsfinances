@@ -60,45 +60,50 @@ export const TransactionTypeContainer = styled.div`
     margin: 1rem 0;
     display: grid; //colocar do lado do outro.
     grid-template-columns: 1fr 1fr;
-    gap: 0.25rem;
+    gap: 0.25rem; 
+`;
 
-    button {
-        height: 4rem;
-        border: 1px solid #d7d7d7;
-        border-radius: 0.25rem;
+interface RadioBoxProps {
+    isActive: boolean;
+}
 
-        background: transparent;
+export const RadioBox = styled.button<RadioBoxProps>`
+    height: 4rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    //interpolação para mudar a cor do botão ao clicar.
+    background: ${props => props.isActive ? '#555' : 'transparent'};
 
-        //efeitos
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    //efeitos
+    
+    transition: filter 0.2s;
         
-        transition: filter 0.2s;
-            
-        /* 
-            assim css normal.
-            &:hover {
-            border-color: #aaa; //efeito de borda escurecida.
-        } */
+    /* 
+        assim css normal.
+        &:hover {
+        border-color: #aaa; //efeito de borda escurecida.
+    } */
 
-        //polished é um pacote de efeitos de css com styled components
-        //escurecer em 10% a cor #d7d7d7.
-        
-            &:hover {
-            border-color: ${darken(0.1, '#d7d7d7')}; 
-            }
-
-        img {
-            width: 20px;
-            height: 20px;
+    //polished é um pacote de efeitos de css com styled components
+    //escurecer em 10% a cor #d7d7d7.
+    
+        &:hover {
+        border-color: ${darken(0.1, '#d7d7d7')}; 
         }
 
-        span {
-            display: inline-block; //assim consigo dar um margin nele.
-            margin-left: 1rem;
-            font-size: 1rem;
-        }
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        display: inline-block; //assim consigo dar um margin nele.
+        margin-left: 1rem;
+        font-size: 1rem;
     }
 `;
