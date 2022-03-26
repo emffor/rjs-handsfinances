@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { api } from '../../services/api';
 import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
@@ -29,7 +30,14 @@ export function NewTransationModal({
     function handleCreateNewTransation(event: FormEvent){
         event.preventDefault();
 
-        console.log(title, value, category, type);
+        const data = ({
+            title,
+            value,
+            category,
+            type,
+        });
+
+        api.post('/transactions', data);  
     }
 
   return (
@@ -54,7 +62,7 @@ export function NewTransationModal({
                 placeholder="Título"
                 value={title}
                 onChange={event => setTitle(event.target.value)}
-            /> 
+          /> 
 
             <input
                 type="number"
