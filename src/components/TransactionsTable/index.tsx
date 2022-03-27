@@ -8,7 +8,7 @@ Container
 
 export function TransactionsTable(){
   //para mostrar em tela
-  const transactions = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext);
   
   return (
     <Container>
