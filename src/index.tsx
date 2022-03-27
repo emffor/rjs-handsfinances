@@ -15,10 +15,10 @@ createServer({
       transactions: [
         {
           id: 1,
-          title: 'Comissão de vendas',	
+          title: 'Vanda de Carro',	
           type: 'deposit',
-          category: 'Dev',
-          amount: 2000,
+          category: 'Vendas',
+          amount: 102000,
           createdAt: new Date('2022-01-14 09:20:43'),
         },
         {
@@ -26,7 +26,7 @@ createServer({
           title: 'Aluguel da loja',	
           type: 'withdraw',
           category: 'Casa',
-          amount: 1100,
+          amount: 2200,
           createdAt: new Date('2022-01-16 10:10:13'),
         },
       ]
