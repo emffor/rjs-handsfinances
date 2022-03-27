@@ -1,6 +1,4 @@
 import { FormEvent, useState, useContext } from 'react';
-
-import { api } from '../../services/api';
 import Modal from 'react-modal';
 import { TransactionsContext } from '../../TransactionsContext';
 
@@ -31,15 +29,25 @@ export function NewTransationModal({
     const [category, setCategory] = useState('');
     const [type, setType] = useState('deposit');
 
-    function handleCreateNewTransation(event: FormEvent){
+
+    //ele vai aguardar a function retornar caso de tudo certo ele fecha o modal.
+    async function handleCreateNewTransation(event: FormEvent){
         event.preventDefault();
 
-        createTransaction({
+        await createTransaction({
             title,
             amount,
             category,
             type,
         });  
+
+        //apagando o modal.
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        setType('deposit');
+        //fechando o modal.   
+        onRequestClose();
     }
 
   return (
